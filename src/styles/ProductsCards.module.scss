@@ -1,0 +1,85 @@
+.productCard {
+  display: flex;
+  flex-direction: column;
+  max-height: min-content;
+  max-width: 24%;
+  background-color: #0f52ba;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+.productCard:hover,
+.productCard:focus {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 8px 4px #0f53ba9d;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90%;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+}
+
+.productInfos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.productImg {
+  height: 8rem;
+  width: 7rem;
+  border-radius: 0.5rem;
+}
+
+.productName {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.18rem;
+  text-align: center;
+}
+
+.productPrice {
+  padding: 0.5rem;
+  background-color: #373737;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1rem;
+}
+
+.productDescription {
+  color: #2c2c2c;
+  font-weight: 300;
+  font-size: 0.675rem;
+  line-height: 0.75rem;
+}
+
+.buyIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.buyProduct {
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  padding: 0.675rem;
+  background: none;
+  border: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: all 0.3s;
+}
+
+.buyProduct:hover {
+  background-color: #136ef7;
+  box-shadow: 0px 0px 4px 2px rgba(224, 224, 224, 0.3) inset;
+}

@@ -13,6 +13,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      <Products />
       <Footer />
     </>
   );
