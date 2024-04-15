@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 import cx from "@/styles/Home.module.scss";
+import Header from "@/components/Header";
+import Cart from "@/components/Cart";
+import ProductCards from "@/components/ProductsCards";
+import Products from "@/components/Products";
 
 export default function Home() {
   return (
     <>
-      <motion.div
-        className={cx.box}
-        initial={{ opacity: 0 }}
-        animate={{ y: [-50, 50, 0], opacity: 1 }}>
-        <h1>Aloooo</h1>
-      </motion.div>
+      <Header />
+      <Cart />
+      <ProductCards />
+      <Products />
     </>
   );
 }
