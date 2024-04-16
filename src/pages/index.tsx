@@ -1,21 +1,16 @@
 import Header from "@/components/Header";
 import Cart from "@/components/Cart";
 import Products from "@/components/Products";
-import { useState } from "react";
 import Footer from "@/components/Footer";
 import cx from "@/styles/Home.module.scss";
-import { useQuery } from "@tanstack/react-query";
 import Skeleton from "@/components/Skeleton";
-import { fetchProducts } from "@/api/fetch";
 import { useShowCart } from "@/hooks/useShowCart";
+import { useProducts } from "@/hooks/useProducts";
 
 export default function Home() {
   const { showCart, disableCart } = useShowCart();
 
-  const { isPending, error, data } = useQuery({
-    queryKey: ["productsData"],
-    queryFn: () => fetchProducts(),
-  });
+  const { isPending, error, data } = useProducts();
 
   if (isPending) return <Skeleton />;
 

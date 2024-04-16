@@ -13,6 +13,24 @@ export const useSelectedProduct = () => {
 
   const { selectedProduct, setSelectedProduct } = context;
 
+  const updateProduct = (productId: number, quantityChange: number) => {
+    setSelectedProduct((prev) =>
+      prev.map((p) =>
+        p.product.id === productId
+          ? {
+              ...p,
+              quantity: Math.max(p.quantity + quantityChange, 0),
+              total: parseFloat(
+                (
+                  p.product.price * Math.max(p.quantity + quantityChange, 0)
+                ).toFixed(2)
+              ),
+            }
+          : p
+      )
+    );
+  };
+
   const addProduct = (product: Product) => {
     setSelectedProduct((prev) => {
       const existingProduct = prev.find((p) => p.product.id === product.id);
@@ -42,37 +60,11 @@ export const useSelectedProduct = () => {
   };
 
   const incrementQuantity = (productId: number) => {
-    setSelectedProduct((prev) =>
-      prev.map((p) =>
-        p.product.id === productId
-          ? {
-              ...p,
-              quantity: p.quantity + 1,
-              total: parseFloat(
-                (p.product.price * (p.quantity + 1)).toFixed(2)
-              ),
-            }
-          : p
-      )
-    );
+    updateProduct(productId, 1);
   };
 
   const decrementQuantity = (productId: number) => {
-    setSelectedProduct((prev) =>
-      prev.map((p) =>
-        p.product.id === productId
-          ? {
-              ...p,
-              quantity: p.quantity - 1 >= 0 ? p.quantity - 1 : 0,
-              total: parseFloat(
-                (
-                  p.product.price * (p.quantity - 1 >= 0 ? p.quantity - 1 : 0)
-                ).toFixed(2)
-              ),
-            }
-          : p
-      )
-    );
+    updateProduct(productId, -1);
   };
 
   return {

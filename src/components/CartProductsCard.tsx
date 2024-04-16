@@ -3,14 +3,14 @@ import cx from "@/styles/CartProductsCard.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useSelectedProduct } from "@/hooks/useSelectedProduct";
+import { QuantityChanger } from "./QuantityChanger";
 
 export default function CartProductsCard({
   product,
 }: {
   product: SelectedProduct;
 }) {
-  const { incrementQuantity, decrementQuantity, removeProduct } =
-    useSelectedProduct();
+  const { removeProduct } = useSelectedProduct();
 
   return (
     <div className={cx.cardContainer}>
@@ -20,23 +20,7 @@ export default function CartProductsCard({
       <p className={cx.productName}>{product.product.name}</p>
       <div className={cx.quantityContainer}>
         <span className={cx.textQuantity}>Qtd:</span>
-        <div className={cx.quantityChanger}>
-          <button
-            className={cx.button}
-            onClick={() => {
-              decrementQuantity(product.product.id);
-            }}>
-            -
-          </button>
-          <span className={cx.quantity}>{product.quantity}</span>
-          <button
-            className={cx.button}
-            onClick={() => {
-              incrementQuantity(product.product.id);
-            }}>
-            +
-          </button>
-        </div>
+        <QuantityChanger product={product} />
       </div>
       <p className={cx.total}>R${product.total}</p>
 

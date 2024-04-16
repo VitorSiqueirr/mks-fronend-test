@@ -3,21 +3,13 @@ import cx from "@/styles/Cart.module.scss";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CartProductsCard from "./CartProductsCard";
-import { useEffect, useState } from "react";
 import { useShowCart } from "@/hooks/useShowCart";
+import { useTotal } from "@/hooks/useTotal";
 
 export default function Cart() {
   const { selectedProduct } = useSelectedProduct();
   const { disableCart } = useShowCart();
-  const [total, setTotal] = useState(0.0);
-
-  useEffect(() => {
-    const newTotal = selectedProduct.reduce((sum, product) => {
-      return sum + product.total * 100;
-    }, 0);
-
-    setTotal(newTotal / 100);
-  }, [selectedProduct]);
+  const total = useTotal();
 
   return (
     <div className={cx.cartContainer}>

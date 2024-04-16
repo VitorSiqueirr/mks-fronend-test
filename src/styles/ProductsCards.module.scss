@@ -62,24 +62,3 @@
   font-size: 0.675rem;
   line-height: 0.75rem;
 }
-
-.buyIcon {
-  width: 1rem;
-  height: 1rem;
-}
-
-.buyProduct {
-  cursor: pointer;
-  color: white;
-  font-size: 1rem;
-  padding: 0.675rem;
-  background: none;
-  border: none;
-  border-radius: 0 0 0.5rem 0.5rem;
-  transition: all 0.3s;
-}
-
-.buyProduct:hover {
-  background-color: #136ef7;
-  box-shadow: 0px 0px 4px 2px rgba(224, 224, 224, 0.3) inset;
-}
