@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { ShowCartContext } from "@/context/context/showCartContext";
+import { useContext } from "react";
 
 export const useShowCart = () => {
-  const [showCart, setShowCart] = useState(false);
+  const context = useContext(ShowCartContext);
+
+  if (context === undefined) {
+    throw new Error("useShowCart must be used within a ShowCartProvider");
+  }
+
+  const { showCart, setShowCart } = context;
 
   const enableCart = () => {
     setShowCart(true);
