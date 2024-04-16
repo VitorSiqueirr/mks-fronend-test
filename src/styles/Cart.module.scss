@@ -18,7 +18,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 1rem;
-  height: 15%;
+  height: 5%;
 }
 
 .cartTitle {
@@ -41,8 +41,13 @@
 }
 
 .cartProducts {
-  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem;
   height: 70%;
+  overflow: auto;
 }
 
 .cartFooter {

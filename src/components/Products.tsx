@@ -8,9 +8,7 @@ export default function Products({ ProductData }: ProductComponentType) {
   return (
     <div className={cx.productsList}>
       {ProductData.products.map((product: Product, key: Key) => (
-        <>
-          <ProductCards key={key} product={product} />
-        </>
+        <ProductCards key={key} product={product} />
       ))}
     </div>
   );

@@ -19,10 +19,18 @@ export const useSelectedProduct = () => {
 
       if (existingProduct) {
         return prev.map((p) =>
-          p.product.id === product.id ? { ...p, quantity: p.quantity + 1 } : p
+          p.product.id === product.id
+            ? {
+                ...p,
+                quantity: p.quantity + 1,
+                total: parseFloat(
+                  (product.price * (p.quantity + 1)).toFixed(2)
+                ),
+              }
+            : p
         );
       } else {
-        return [...prev, { product, quantity: 1 }];
+        return [...prev, { product, quantity: 1, total: product.price }];
       }
     });
   };
@@ -36,7 +44,33 @@ export const useSelectedProduct = () => {
   const incrementQuantity = (productId: number) => {
     setSelectedProduct((prev) =>
       prev.map((p) =>
-        p.product.id === productId ? { ...p, quantity: p.quantity + 1 } : p
+        p.product.id === productId
+          ? {
+              ...p,
+              quantity: p.quantity + 1,
+              total: parseFloat(
+                (p.product.price * (p.quantity + 1)).toFixed(2)
+              ),
+            }
+          : p
+      )
+    );
+  };
+
+  const decrementQuantity = (productId: number) => {
+    setSelectedProduct((prev) =>
+      prev.map((p) =>
+        p.product.id === productId
+          ? {
+              ...p,
+              quantity: p.quantity - 1 >= 0 ? p.quantity - 1 : 0,
+              total: parseFloat(
+                (
+                  p.product.price * (p.quantity - 1 >= 0 ? p.quantity - 1 : 0)
+                ).toFixed(2)
+              ),
+            }
+          : p
       )
     );
   };
@@ -46,5 +80,6 @@ export const useSelectedProduct = () => {
     addProduct,
     removeProduct,
     incrementQuantity,
+    decrementQuantity,
   };
 };

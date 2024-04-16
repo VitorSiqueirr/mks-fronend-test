@@ -1,11 +1,23 @@
 import { useSelectedProduct } from "@/hooks/useSelectedProduct";
 import cx from "@/styles/Cart.module.scss";
-import { CartComponentType } from "@/types/CartTypes";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CartProductsCard from "./CartProductsCard";
+import { useEffect, useState } from "react";
+import { useShowCart } from "@/hooks/useShowCart";
 
-export default function Cart({ disableCart }: CartComponentType) {
+export default function Cart() {
   const { selectedProduct } = useSelectedProduct();
+  const { disableCart } = useShowCart();
+  const [total, setTotal] = useState(0.0);
+
+  useEffect(() => {
+    const newTotal = selectedProduct.reduce((sum, product) => {
+      return sum + product.total * 100;
+    }, 0);
+
+    setTotal(newTotal / 100);
+  }, [selectedProduct]);
 
   return (
     <div className={cx.cartContainer}>
@@ -17,12 +29,20 @@ export default function Cart({ disableCart }: CartComponentType) {
           onClick={disableCart}
         />
       </div>
-      <div className={cx.cartProducts}>{/* {selectedProduct} */}</div>
+      <div className={cx.cartProducts}>
+        {selectedProduct.length != 0 ? (
+          selectedProduct.map((product, key) => (
+            <CartProductsCard key={key} product={product} />
+          ))
+        ) : (
+          <></>
+        )}
+      </div>
 
       <div className={cx.cartFooter}>
         <p className={cx.cartTotal}>
           Total:
-          <span>R$798</span>
+          <span>R${total}</span>
         </p>
         <button className={cx.cartCheckout} onClick={disableCart}>
           Finalizar Compra

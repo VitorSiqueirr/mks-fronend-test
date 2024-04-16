@@ -15,4 +15,5 @@ export type Product = {
 export type SelectedProduct = {
   product: Product;
   quantity: number;
+  total: number;
 };
