@@ -1,8 +1,12 @@
+import { useSelectedProduct } from "@/hooks/useSelectedProduct";
 import cx from "@/styles/Cart.module.scss";
+import { CartComponentType } from "@/types/CartTypes";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Cart({ disableCart }) {
+export default function Cart({ disableCart }: CartComponentType) {
+  const { selectedProduct } = useSelectedProduct();
+
   return (
     <div className={cx.cartContainer}>
       <div className={cx.cartHeader}>
@@ -13,7 +17,7 @@ export default function Cart({ disableCart }) {
           onClick={disableCart}
         />
       </div>
-      <div className={cx.cartProducts}>Produto</div>
+      <div className={cx.cartProducts}>{/* {selectedProduct} */}</div>
 
       <div className={cx.cartFooter}>
         <p className={cx.cartTotal}>

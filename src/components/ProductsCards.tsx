@@ -1,19 +1,12 @@
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import cx from "@/styles/ProductsCards.module.scss";
+import { useSelectedProduct } from "@/hooks/useSelectedProduct";
+import { Product } from "@/types/ProductTypes";
 
-export default function ProductCards({
-  product,
-}: {
-  product: {
-    id: number;
-    photo: string;
-    brand: string;
-    name: string;
-    price: number;
-    description: string;
-  };
-}) {
+export default function ProductCards({ product }: { product: Product }) {
+  const { addProduct } = useSelectedProduct();
+
   return (
     <div className={cx.productCard}>
       <div className={cx.product}>
@@ -30,7 +23,11 @@ export default function ProductCards({
         </div>
         <p className={cx.productDescription}>{product.description}</p>
       </div>
-      <button className={cx.buyProduct}>
+      <button
+        className={cx.buyProduct}
+        onClick={() => {
+          addProduct(product);
+        }}>
         <FontAwesomeIcon className={cx.buyIcon} icon={faBagShopping} /> Comprar
       </button>
     </div>
