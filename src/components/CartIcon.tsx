@@ -9,8 +9,15 @@ export default function CartIcon() {
   const { enableCart } = useShowCart();
 
   return (
-    <div className={cx.cartIconContainer} onClick={() => enableCart()}>
-      <FontAwesomeIcon className={cx.cartIcon} icon={faCartShopping} />
+    <div
+      className={cx.cartIconContainer}
+      data-testid="cartButton"
+      onClick={enableCart}>
+      <FontAwesomeIcon
+        className={cx.cartIcon}
+        data-testid="cartIcon"
+        icon={faCartShopping}
+      />
       <span className={cx.cartCount}>{selectedProduct.length}</span>
     </div>
   );
