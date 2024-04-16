@@ -67,11 +67,16 @@ export const useSelectedProduct = () => {
     updateProduct(productId, -1);
   };
 
+  const clearProducts = () => {
+    setSelectedProduct([]);
+  };
+
   return {
     selectedProduct,
     addProduct,
     removeProduct,
     incrementQuantity,
     decrementQuantity,
+    clearProducts,
   };
 };

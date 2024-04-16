@@ -15,7 +15,11 @@ export default function CartProductsCard({
   return (
     <div className={cx.cardContainer}>
       <picture>
-        <img className={cx.productImage} src={product.product.photo} alt="" />
+        <img
+          className={cx.productImage}
+          src={product.product.photo}
+          alt={`image of the product ${product.product.name}`}
+        />
       </picture>
       <p className={cx.productName}>{product.product.name}</p>
       <div className={cx.quantityContainer}>

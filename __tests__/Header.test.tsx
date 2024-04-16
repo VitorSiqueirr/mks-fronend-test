@@ -1,4 +1,4 @@
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Header from "@/components/Header";
 import { useSelectedProduct } from "../src/hooks/useSelectedProduct";
 import { useShowCart } from "../src/hooks/useShowCart";

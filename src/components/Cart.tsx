@@ -7,14 +7,14 @@ import { useShowCart } from "@/hooks/useShowCart";
 import { useTotal } from "@/hooks/useTotal";
 
 export default function Cart() {
-  const { selectedProduct } = useSelectedProduct();
+  const { selectedProduct, clearProducts } = useSelectedProduct();
   const { disableCart } = useShowCart();
   const total = useTotal();
 
   return (
     <div className={cx.cartContainer}>
       <div className={cx.cartHeader}>
-        <h1 className={cx.cartTitle}> Carrinho de Compras</h1>
+        <h1 className={cx.cartTitle}>Carrinho de Compras</h1>
         <FontAwesomeIcon
           className={cx.cartCloseIcon}
           icon={faCircleXmark}
@@ -36,7 +36,12 @@ export default function Cart() {
           Total:
           <span>R${total}</span>
         </p>
-        <button className={cx.cartCheckout} onClick={disableCart}>
+        <button
+          className={cx.cartCheckout}
+          onClick={() => {
+            clearProducts;
+            disableCart;
+          }}>
           Finalizar Compra
         </button>
       </div>
