@@ -1,4 +1,4 @@
-import { SelectProductContextType } from "@/types/ProductTypes";
+import { SelectProductContextType } from "@/types/ContextTypes";
 import { createContext } from "react";
 
 export const SelectProductContext = createContext<
