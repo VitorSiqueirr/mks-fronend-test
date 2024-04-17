@@ -1,7 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import Header from "@/components/Header";
-import { useSelectedProduct } from "../src/hooks/useSelectedProduct";
-import { useShowCart } from "../src/hooks/useShowCart";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 

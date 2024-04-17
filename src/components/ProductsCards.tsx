@@ -4,7 +4,7 @@ import { BuyButton } from "./BuyButton";
 
 export default function ProductCards({ product }: { product: Product }) {
   return (
-    <div className={cx.productCard}>
+    <div className={cx.productCard} data-testid="products">
       <div className={cx.product}>
         <picture>
           <img

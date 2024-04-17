@@ -13,7 +13,12 @@ export const BuyButton = ({ product }: { product: Product }) => {
       onClick={() => {
         addProduct(product);
       }}>
-      <FontAwesomeIcon className={cx.buyIcon} icon={faBagShopping} /> Comprar
+      <FontAwesomeIcon
+        data-testid="buyIcon"
+        className={cx.buyIcon}
+        icon={faBagShopping}
+      />{" "}
+      Comprar
     </button>
   );
 };
