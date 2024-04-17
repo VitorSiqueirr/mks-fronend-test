@@ -16,6 +16,7 @@ export default function Cart() {
       <div className={cx.cartHeader}>
         <h1 className={cx.cartTitle}>Carrinho de Compras</h1>
         <FontAwesomeIcon
+          data-testid="closeCartIcon"
           className={cx.cartCloseIcon}
           icon={faCircleXmark}
           onClick={disableCart}
@@ -39,8 +40,8 @@ export default function Cart() {
         <button
           className={cx.cartCheckout}
           onClick={() => {
-            clearProducts;
-            disableCart;
+            clearProducts();
+            disableCart();
           }}>
           Finalizar Compra
         </button>

@@ -26,9 +26,12 @@ export default function CartProductsCard({
         <span className={cx.textQuantity}>Qtd:</span>
         <QuantityChanger product={product} />
       </div>
-      <p className={cx.total}>R${product.total}</p>
+      <p className={cx.total} data-testid="productTotal">
+        R${product.total}
+      </p>
 
       <FontAwesomeIcon
+        data-testid="deleteProductIcon"
         className={cx.productDeleteIcon}
         icon={faCircleXmark}
         onClick={() => removeProduct(product.product.id)}

@@ -14,7 +14,9 @@ export const QuantityChanger = ({ product }: { product: SelectedProduct }) => {
         }}>
         -
       </button>
-      <span className={cx.quantity}>{product.quantity}</span>
+      <span data-testid="productQuantity" className={cx.quantity}>
+        {product.quantity}
+      </span>
       <button
         className={cx.button}
         onClick={() => {
