@@ -2,8 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchProducts } from "@/api/fetch";
 
 export const useProducts = () => {
-  return useQuery({
+  const results = useQuery({
     queryKey: ["productsData"],
     queryFn: () => fetchProducts(),
   });
+
+  return results;
 };

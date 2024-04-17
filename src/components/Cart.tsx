@@ -33,7 +33,7 @@ export default function Cart() {
       </div>
 
       <div className={cx.cartFooter}>
-        <p className={cx.cartTotal}>
+        <p data-testid="finalAmount" className={cx.cartTotal}>
           Total:
           <span>R${total}</span>
         </p>

@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 
-jest.mock("../src/hooks/useSelectedProduct", () => ({
+jest.mock("../../src/hooks/useSelectedProduct", () => ({
   useSelectedProduct: jest.fn().mockImplementation(() => ({
     selectedProduct: [{ product: { id: 1 }, quantity: 1, total: 100 }],
   })),
@@ -11,7 +11,7 @@ jest.mock("../src/hooks/useSelectedProduct", () => ({
 
 const enableCart = jest.fn();
 
-jest.mock("../src/hooks/useShowCart", () => ({
+jest.mock("../../src/hooks/useShowCart", () => ({
   useShowCart: jest.fn().mockImplementation(() => ({
     enableCart: enableCart,
   })),

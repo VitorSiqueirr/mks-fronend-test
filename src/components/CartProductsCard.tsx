@@ -13,7 +13,7 @@ export default function CartProductsCard({
   const { removeProduct } = useSelectedProduct();
 
   return (
-    <div className={cx.cardContainer}>
+    <div data-testid="cartProducts" className={cx.cardContainer}>
       <picture>
         <img
           className={cx.productImage}

@@ -8,7 +8,7 @@ const decrementQuantity = jest.fn();
 const incrementQuantity = jest.fn();
 const clearProducts = jest.fn();
 
-jest.mock("../src/hooks/useSelectedProduct", () => ({
+jest.mock("../../src/hooks/useSelectedProduct", () => ({
   useSelectedProduct: jest.fn().mockImplementation(() => ({
     selectedProduct: [
       {
@@ -34,7 +34,7 @@ jest.mock("../src/hooks/useSelectedProduct", () => ({
 
 const disableCart = jest.fn();
 
-jest.mock("../src/hooks/useShowCart", () => ({
+jest.mock("../../src/hooks/useShowCart", () => ({
   useShowCart: jest.fn().mockImplementation(() => ({
     disableCart,
   })),
@@ -52,6 +52,7 @@ describe("Cart", () => {
     const quantity = screen.getByTestId("productQuantity");
     const productTotal = screen.getByTestId("productTotal");
 
+    expect(screen.queryByTestId("cartProducts")).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
         name: /carrinho de compras/i,

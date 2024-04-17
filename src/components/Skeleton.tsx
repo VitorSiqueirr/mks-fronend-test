@@ -10,7 +10,10 @@ export default function Skeleton() {
       <Header />
       <div className={cx.body}>
         {skeletonComponents.map((_, index) => (
-          <div key={index} className={cx.skeletonComponents}></div>
+          <div
+            data-testid="skeletonDiv"
+            key={index}
+            className={cx.skeletonComponents}></div>
         ))}
       </div>
       <Footer />

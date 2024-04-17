@@ -20,7 +20,7 @@ const productData = {
   count: 1,
 };
 
-jest.mock("../src/hooks/useSelectedProduct", () => ({
+jest.mock("../../src/hooks/useSelectedProduct", () => ({
   useSelectedProduct: jest.fn().mockImplementation(() => ({
     addProduct,
   })),
